@@ -232,21 +232,7 @@ export const TerminalConsole: React.FC<TerminalConsoleProps> = ({ onClose }) => 
           </div>
         </div>
       ) : (
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '80vh',
-          minHeight: '480px',
-          width: '100%',
-          maxWidth: '800px',
-          margin: '0 auto',
-          background: 'rgba(3, 7, 18, 0.9)',
-          border: '1px solid var(--border-glass-accent)',
-          borderRadius: '8px',
-          boxShadow: '0 0 30px rgba(168, 85, 247, 0.15)',
-          overflow: 'hidden',
-          fontFamily: 'var(--font-mono)'
-        }}>
+        <div className="terminal-container">
           {/* Header Console Bar */}
           <div style={{
             display: 'flex',

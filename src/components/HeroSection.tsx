@@ -124,17 +124,8 @@ export const HeroSection: React.FC = () => {
 
           <motion.h1 
             variants={itemVariants} 
-            className="glitch-text" 
+            className="glitch-text hero-name" 
             data-text={portfolioConfig.profile.name} 
-            style={{
-              fontFamily: 'var(--font-hud)',
-              fontSize: '4rem',
-              fontWeight: 900,
-              lineHeight: 0.95,
-              color: 'var(--text-primary)',
-              marginBottom: '1rem',
-              textTransform: 'uppercase'
-            }}
           >
             {portfolioConfig.profile.name}
           </motion.h1>
@@ -157,15 +148,7 @@ export const HeroSection: React.FC = () => {
           {/* Headline details */}
           <motion.h3
             variants={itemVariants}
-            style={{
-              fontFamily: 'var(--font-hud)',
-              fontSize: '1.6rem',
-              fontWeight: 800,
-              lineHeight: 1.25,
-              color: 'var(--text-primary)',
-              marginBottom: '1rem',
-              letterSpacing: '0.5px'
-            }}
+            className="hero-subtitle"
           >
             Building Powerful Backend Systems <br />
             <span style={{ color: 'var(--neon-cyan)' }}>For Modern Web Applications.</span>

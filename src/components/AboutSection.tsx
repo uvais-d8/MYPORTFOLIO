@@ -157,7 +157,7 @@ export const AboutSection: React.FC = () => {
             </motion.div>
 
             {/* Pillars grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
+            <div className="about-pillars-grid">
               {coreFocus.map((focus, idx) => {
                 const IconComp = focus.icon;
                 return (

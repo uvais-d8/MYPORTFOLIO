@@ -117,11 +117,7 @@ export const ExtrasSection: React.FC = () => {
         </motion.div>
 
         {/* Dynamic Statistics Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '1rem'
-        }}>
+        <div className="extras-stats-grid">
           {portfolioConfig.profile.stats.map((stat, idx) => (
             <motion.div
               key={idx}
