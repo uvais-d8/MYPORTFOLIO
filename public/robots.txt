@@ -1,0 +1,5 @@
+# robots.txt for muhammeduvais.dev
+User-agent: *
+Allow: /
+
+Sitemap: https://muhammeduvais.dev/sitemap.xml
