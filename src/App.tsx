@@ -88,7 +88,7 @@ function App() {
           <footer style={{
             borderTop: '1px solid var(--border-glass)',
             paddingTop: '2rem',
-            marginTop: '6rem',
+            marginTop: '3rem',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',

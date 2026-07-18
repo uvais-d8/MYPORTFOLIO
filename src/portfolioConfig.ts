@@ -62,11 +62,9 @@ export interface PortfolioData {
     phone: string;
     whatsapp: string;
     github: string;
-    linkedin: string;
-    portfolio: string;
+    linkedin: string; 
     instagram: string;
-    facebook: string;
-    snapchat: string;
+    facebook: string; 
     location: string;
     mapLink: string;
   };
@@ -280,11 +278,9 @@ export const portfolioConfig: PortfolioData = {
     phone: "+91 594060696",
     whatsapp: "7594060696",
     github: "github.com/uvais-d8",
-    linkedin: "linkedin.com/in/muhammed-uvais-t-aab0a5320",
-    portfolio: "muhammeduvais.dev",
+    linkedin: "linkedin.com/in/muhammed-uvais-t-aab0a5320", 
     instagram: "instagram.com/uvais_d8",
-    facebook: "facebook.com/profile.php?id=61562901427940",
-    snapchat: "snapchat.com/web",
+    facebook: "facebook.com/profile.php?id=61562901427940", 
     location: "Malappuram, Kerala, India",
     mapLink: "https://www.google.com/maps/place/11%C2%B008'05.6%22N+76%C2%B002'51.2%22E/@11.1329403,76.0446171,16.8z/data=!4m4!3m3!8m2!3d11.134899!4d76.047542?entry=ttu&g_ep=EgoyMDI2MDcxNS4wIKXMDSoASAFQAw%3D%3D"
   },

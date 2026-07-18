@@ -22,7 +22,7 @@ export const EducationSection: React.FC = () => {
   };
 
   return (
-    <section id="education" style={{ padding: '2rem 0' }}>
+    <section id="education" style={{ padding: '1rem 0' }}>
       <h2 className="section-title">
         <span className="text-cyan">//</span> ACADEMIC_CREDENTIALS
       </h2>

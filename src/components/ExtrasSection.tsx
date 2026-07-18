@@ -37,13 +37,13 @@ export const ExtrasSection: React.FC = () => {
   };
 
   return (
-    <section id="extras" style={{ padding: '2rem 0' }}>
+    <section id="extras" style={{ padding: '1rem 0' }}>
       {/* 1. Metrics & GitHub telemetry dashboard */}
       <div style={{
         display: 'grid',
         gridTemplateColumns: '1fr',
         gap: '2rem',
-        marginBottom: '4rem',
+        marginBottom: '2rem',
         '@media (min-width: 992px)': {
           gridTemplateColumns: '1.2fr 1fr'
         }
@@ -176,7 +176,7 @@ export const ExtrasSection: React.FC = () => {
       </div>
 
       {/* 2. Currently Learning grid */}
-      <div style={{ marginBottom: '4rem' }}>
+      <div style={{ marginBottom: '2rem' }}>
         <h2 className="section-title">
           <span className="text-cyan">//</span> CURRENTLY_LEARNING_PIPELINE
         </h2>

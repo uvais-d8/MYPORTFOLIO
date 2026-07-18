@@ -32,7 +32,7 @@ export const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" style={{ padding: '4rem 0' }}>
+    <section id="about" style={{ padding: '1.5rem 0' }}>
       <motion.div
         initial="hidden"
         whileInView="visible"

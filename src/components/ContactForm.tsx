@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { portfolioConfig } from '../portfolioConfig';
 import { playCyberSound } from './Header';
-import { 
-  Mail, Linkedin, Github, Globe, Instagram, Facebook, 
-  Ghost, MessageCircle, Phone, MapPin, Copy, Check, 
-  ExternalLink, Send, X, Cpu, CheckCircle 
+import {
+  Mail, Linkedin, Github, Globe, Instagram, Facebook,
+  Ghost, MessageCircle, Phone, MapPin, Copy, Check,
+  ExternalLink, Send, X, Cpu, CheckCircle
 } from 'lucide-react';
 
 interface SocialCard {
@@ -23,7 +23,7 @@ interface SocialCard {
 export const ContactForm: React.FC = () => {
   // Clipboard copy state
   const [copiedType, setCopiedType] = useState<string | null>(null);
-  
+
   // Contact Form Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -53,7 +53,7 @@ export const ContactForm: React.FC = () => {
     playCyberSound('click');
 
     setTransmissionPhase('INITIALIZING ENCRYPTION PROTOCOLS...');
-    
+
     setTimeout(() => {
       setTransmissionPhase('COMPILING TRANSMISSION DATA PACKET...');
       playCyberSound('terminal');
@@ -137,16 +137,6 @@ export const ContactForm: React.FC = () => {
       floatDelay: 0.8
     },
     {
-      name: "Portfolio",
-      displayValue: portfolioConfig.contactInfo.portfolio,
-      description: "Current hosting server index.",
-      icon: Globe,
-      url: "#",
-      brandColor: "#00f0ff",
-      tooltipText: "You are here",
-      floatDelay: 1.2
-    },
-    {
       name: "Instagram",
       displayValue: "@uvais_d8",
       description: "Creative logs & social snapshots.",
@@ -167,16 +157,6 @@ export const ContactForm: React.FC = () => {
       floatDelay: 1.4
     },
     {
-      name: "Snapchat",
-      displayValue: "Snapchat Web",
-      description: "Snapchat messaging coordinates.",
-      icon: Ghost,
-      url: `https://${portfolioConfig.contactInfo.snapchat}`,
-      brandColor: "#fffc00",
-      tooltipText: "Launch Snapchat Channel",
-      floatDelay: 1.6
-    },
-    {
       name: "Location",
       displayValue: portfolioConfig.contactInfo.location,
       description: "Server hosting station origin.",
@@ -189,9 +169,9 @@ export const ContactForm: React.FC = () => {
   ];
 
   return (
-    <section id="contact" style={{ padding: '6rem 0' }}>
+    <section id="contact" style={{ padding: '2.5rem 0' }}>
       {/* "Let's Build Something Amazing Together" CTA */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -233,27 +213,17 @@ export const ContactForm: React.FC = () => {
         {socialCards.map((card) => {
           const IconComponent = card.icon;
           const isCopied = copiedType === card.name.toLowerCase();
-          
+
           return (
             <motion.div
               key={card.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              animate={{
-                y: [0, -6, 0]
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: card.floatDelay
-              }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.03,
                 borderColor: card.brandColor,
-                boxShadow: `0 0 20px ${card.brandColor}33`,
-                y: 0
+                boxShadow: `0 0 20px ${card.brandColor}33`
               }}
               className="cyber-panel corner-brackets social-card-item"
               style={{
@@ -300,7 +270,7 @@ export const ContactForm: React.FC = () => {
 
               {/* Card Header & Brand Icon */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <div 
+                <div
                   className="social-icon-wrapper"
                   style={{
                     width: '42px',
@@ -316,7 +286,7 @@ export const ContactForm: React.FC = () => {
                 >
                   <IconComponent size={20} className="social-icon" style={{ color: 'var(--neon-cyan)', transition: 'color 0.3s ease' }} />
                 </div>
-                
+
                 {card.isCopyable ? (
                   <div style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }} className="copy-action-icon">
                     {isCopied ? <Check size={14} className="text-green" /> : <Copy size={14} />}
@@ -358,7 +328,7 @@ export const ContactForm: React.FC = () => {
                   {card.displayValue}
                 </div>
               </div>
-              
+
               {/* CSS hover trigger inline inject */}
               <style>{`
                 .social-card-item:hover .card-tooltip {
@@ -382,7 +352,7 @@ export const ContactForm: React.FC = () => {
       </div>
 
       {/* Professional Availability Banner */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
@@ -506,7 +476,7 @@ export const ContactForm: React.FC = () => {
             justifyContent: 'center',
             padding: '1.5rem'
           }}>
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}

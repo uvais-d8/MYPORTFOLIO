@@ -79,7 +79,7 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section id="hero" style={{ padding: '2rem 0', minHeight: '85vh', display: 'flex', alignItems: 'center' }}>
+    <section id="hero" style={{ padding: '1rem 0', minHeight: '60vh', display: 'flex', alignItems: 'center' }}>
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -230,8 +230,8 @@ export const HeroSection: React.FC = () => {
             className="cyber-panel corner-brackets"
             style={{
               width: '100%',
-              maxWidth: '380px',
-              height: '380px',
+              maxWidth: '320px',
+              height: '320px',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
