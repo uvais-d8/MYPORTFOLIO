@@ -1,5 +1,5 @@
-# robots.txt for muhammeduvais.dev
+# robots.txt for muhammeduvais.vercel.app
 User-agent: *
 Allow: /
 
-Sitemap: https://muhammeduvais.dev/sitemap.xml
+Sitemap: https://muhammeduvais.vercel.app/sitemap.xml
