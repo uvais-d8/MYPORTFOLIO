@@ -275,8 +275,8 @@ export const portfolioConfig: PortfolioData = {
   ],
   contactInfo: {
     email: "muhammeduvais6060@gmail.com",
-    phone: "+91 594060696",
-    whatsapp: "7594060696",
+    phone: "+91 7594060696",
+    whatsapp: "917594060696",
     github: "github.com/uvais-d8",
     linkedin: "linkedin.com/in/muhammed-uvais-t-aab0a5320", 
     instagram: "instagram.com/uvais_d8",

@@ -43,14 +43,7 @@ export const AboutSection: React.FC = () => {
           <span className="text-cyan">//</span> EXECUTIVE_BIO
         </motion.h2>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr',
-          gap: '2.5rem',
-          '@media (min-width: 992px)': {
-            gridTemplateColumns: '1.2fr 1fr',
-          }
-        } as any}>
+        <div className="about-grid">
           {/* Detailed Narrative */}
           <motion.div variants={itemVariants} className="cyber-panel corner-brackets" style={{
             background: 'rgba(17, 24, 39, 0.4)',

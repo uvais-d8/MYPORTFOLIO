@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { portfolioConfig } from '../portfolioConfig';
 import { playCyberSound } from './Header';
 import {
-  Mail, Linkedin, Github, Globe, Instagram, Facebook,
-  Ghost, MessageCircle, Phone, MapPin, Copy, Check,
+  Mail, Linkedin, Github, Instagram, Facebook,
+  MessageCircle, Phone, MapPin, Copy, Check,
   ExternalLink, Send, X, Cpu, CheckCircle
 } from 'lucide-react';
 
@@ -356,18 +356,12 @@ export const ContactForm: React.FC = () => {
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className="cyber-panel corner-brackets"
+        className="cyber-panel corner-brackets contact-banner-grid"
         style={{
           background: 'rgba(17, 24, 39, 0.65)',
           border: '1px solid var(--border-glass-accent)',
           padding: '2.5rem',
-          display: 'grid',
-          gridTemplateColumns: '1fr',
-          gap: '2rem',
-          '@media (min-width: 768px)': {
-            gridTemplateColumns: '1.5fr 1fr'
-          }
-        } as any}
+        }}
       >
         <div>
           <div style={{
@@ -402,18 +396,7 @@ export const ContactForm: React.FC = () => {
             Available For Technical Partnerships
           </h3>
 
-          <ul style={{
-            listStyle: 'none',
-            display: 'grid',
-            gridTemplateColumns: '1fr',
-            gap: '0.5rem',
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.8rem',
-            color: 'var(--text-secondary)',
-            '@media (min-width: 576px)': {
-              gridTemplateColumns: '1fr 1fr'
-            }
-          } as any}>
+          <ul className="contact-list-grid">
             <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <span style={{ color: 'var(--neon-green)' }}>[✓]</span> Full-Time Backend Developer Roles
             </li>
@@ -432,15 +415,7 @@ export const ContactForm: React.FC = () => {
           </ul>
         </div>
 
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          '@media (min-width: 768px)': {
-            alignItems: 'flex-end'
-          }
-        } as any}>
+        <div className="contact-button-container">
           <button
             onClick={() => {
               playCyberSound('click');

@@ -42,6 +42,22 @@ export const HeroSection: React.FC = () => {
     setRotation({ x: 0, y: 0 });
   };
 
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!containerRef.current || e.touches.length === 0) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const touch = e.touches[0];
+    const x = touch.clientX - rect.left - rect.width / 2;
+    const y = touch.clientY - rect.top - rect.height / 2;
+    setRotation({
+      x: -y / 15,
+      y: x / 15,
+    });
+  };
+
+  const handleTouchEnd = () => {
+    setRotation({ x: 0, y: 0 });
+  };
+
   // Framer Motion Animation Settings
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -84,15 +100,7 @@ export const HeroSection: React.FC = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr',
-          gap: '3rem',
-          width: '100%',
-          '@media (min-width: 992px)': {
-            gridTemplateColumns: '1.2fr 1fr',
-          }
-        } as any}
+        className="hero-grid"
       >
         {/* Core telemetry details */}
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -218,16 +226,19 @@ export const HeroSection: React.FC = () => {
           ref={containerRef}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
           style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             perspective: '1000px',
-            cursor: 'crosshair'
+            cursor: 'crosshair',
+            width: '100%'
           }}
         >
           <div 
-            className="cyber-panel corner-brackets"
+            className={`cyber-panel corner-brackets ${rotation.x === 0 && rotation.y === 0 ? 'ambient-sway' : ''}`}
             style={{
               width: '100%',
               maxWidth: '320px',
@@ -235,8 +246,8 @@ export const HeroSection: React.FC = () => {
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
-              transition: 'transform 0.1s ease-out',
+              transform: rotation.x === 0 && rotation.y === 0 ? undefined : `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+              transition: rotation.x === 0 && rotation.y === 0 ? 'transform 1s ease, border-color var(--transition-normal), box-shadow var(--transition-normal)' : 'transform 0.1s ease-out',
               background: 'rgba(6, 182, 212, 0.02)',
               border: '1px solid var(--border-glass)',
             }}

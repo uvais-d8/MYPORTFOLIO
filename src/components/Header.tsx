@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { portfolioConfig } from '../portfolioConfig';
-import { Terminal, Shield } from 'lucide-react';
+import { Terminal, Shield, Menu, X } from 'lucide-react';
 
 interface HeaderProps {
   activeSection: string;
@@ -64,6 +64,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [audioEnabled, setAudioEnabled] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const updateTime = () => {
@@ -79,6 +80,7 @@ export const Header: React.FC<HeaderProps> = ({
     if (audioEnabled) playCyberSound('click');
     setActiveSection(section);
     setTerminalMode(false);
+    setMobileMenuOpen(false);
     const element = document.getElementById(section);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -121,8 +123,7 @@ export const Header: React.FC<HeaderProps> = ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        gap: '0.75rem'
+        position: 'relative'
       }}>
         {/* Branding & Status */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
@@ -162,12 +163,12 @@ export const Header: React.FC<HeaderProps> = ({
               boxShadow: '0 0 6px var(--neon-green)',
               animation: 'flicker-keyframes 2s infinite'
             }}></span>
-            UPTIME: {portfolioConfig.profile.uptime}
+            <span className="hide-mobile">UPTIME: </span>{portfolioConfig.profile.uptime}
           </div>
         </div>
 
         {/* Navigation Controls */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        <nav className="desktop-nav">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -195,44 +196,47 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Dashboard Status Controls */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           {/* UTC Telemetry Time */}
-          <div style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.75rem',
-            color: 'var(--text-muted)',
-            display: 'none',
-            '@media (min-width: 768px)': { display: 'block' }
-          } as any}>
+          <div 
+            className="hide-mobile"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.75rem',
+              color: 'var(--text-muted)'
+            }}
+          >
             {currentTime}
           </div>
 
           {/* Audio Telemetry Toggle */}
-          <button
-            onClick={() => {
-              const nextState = !audioEnabled;
-              setAudioEnabled(nextState);
-              if (nextState) {
-                setTimeout(() => playCyberSound('success'), 100);
-              }
-            }}
-            onMouseEnter={() => audioEnabled && playCyberSound('hover')}
-            style={{
-              background: audioEnabled ? 'rgba(6, 182, 212, 0.15)' : 'transparent',
-              border: `1px solid ${audioEnabled ? 'var(--neon-cyan)' : 'var(--text-muted)'}`,
-              color: audioEnabled ? 'var(--neon-cyan)' : 'var(--text-muted)',
-              borderRadius: '4px',
-              padding: '0.35rem 0.65rem',
-              fontSize: '0.7rem',
-              cursor: 'pointer',
-              fontFamily: 'var(--font-hud)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.25rem',
-              transition: 'all var(--transition-fast)',
-            }}
-          >
-            <Shield size={10} />
-            AUDIO: {audioEnabled ? 'ON' : 'OFF'}
-          </button>
+          <div className="hide-mobile">
+            <button
+              onClick={() => {
+                const nextState = !audioEnabled;
+                setAudioEnabled(nextState);
+                if (nextState) {
+                  setTimeout(() => playCyberSound('success'), 100);
+                }
+              }}
+              onMouseEnter={() => audioEnabled && playCyberSound('hover')}
+              style={{
+                background: audioEnabled ? 'rgba(6, 182, 212, 0.15)' : 'transparent',
+                border: `1px solid ${audioEnabled ? 'var(--neon-cyan)' : 'var(--text-muted)'}`,
+                color: audioEnabled ? 'var(--neon-cyan)' : 'var(--text-muted)',
+                borderRadius: '4px',
+                padding: '0.35rem 0.65rem',
+                fontSize: '0.7rem',
+                cursor: 'pointer',
+                fontFamily: 'var(--font-hud)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+                transition: 'all var(--transition-fast)',
+              }}
+            >
+              <Shield size={10} />
+              AUDIO: {audioEnabled ? 'ON' : 'OFF'}
+            </button>
+          </div>
 
           {/* Terminal Console mode toggle */}
           <button
@@ -256,6 +260,71 @@ export const Header: React.FC<HeaderProps> = ({
             <Terminal size={12} />
             {terminalMode ? 'EXIT_CLI' : 'LAUNCH_CLI'}
           </button>
+
+          {/* Hamburger Menu Toggle Button */}
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
+          </button>
+        </div>
+
+        {/* Mobile Slide-Down Navigation Panel */}
+        <div className={`mobile-nav-panel ${mobileMenuOpen ? 'open' : ''}`}>
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => handleNav(item.id)}
+              style={{
+                background: 'transparent',
+                border: 'none',
+                color: activeSection === item.id && !terminalMode ? 'var(--neon-cyan)' : 'var(--text-secondary)',
+                fontSize: '0.85rem',
+                fontWeight: 600,
+                letterSpacing: '1px',
+                padding: '0.6rem 0',
+                textAlign: 'left',
+                cursor: 'pointer',
+                borderBottom: `1px solid ${activeSection === item.id && !terminalMode ? 'rgba(6, 182, 212, 0.3)' : 'rgba(255,255,255,0.05)'}`,
+                width: '100%'
+              }}
+            >
+              {`> ${item.label}`}
+            </button>
+          ))}
+          {/* Mobile Extra Controls inside Menu */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1rem', borderTop: '1px solid rgba(6, 182, 212, 0.1)', paddingTop: '1rem' }}>
+            <div style={{ color: 'var(--text-muted)', fontSize: '0.7rem', fontFamily: 'var(--font-mono)' }}>
+              {currentTime}
+            </div>
+            <button
+              onClick={() => {
+                const nextState = !audioEnabled;
+                setAudioEnabled(nextState);
+                if (nextState) {
+                  setTimeout(() => playCyberSound('success'), 100);
+                }
+              }}
+              style={{
+                background: audioEnabled ? 'rgba(6, 182, 212, 0.15)' : 'transparent',
+                border: `1px solid ${audioEnabled ? 'var(--neon-cyan)' : 'var(--text-muted)'}`,
+                color: audioEnabled ? 'var(--neon-cyan)' : 'var(--text-muted)',
+                borderRadius: '4px',
+                padding: '0.35rem 0.65rem',
+                fontSize: '0.7rem',
+                cursor: 'pointer',
+                fontFamily: 'var(--font-hud)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+                transition: 'all var(--transition-fast)',
+              }}
+            >
+              <Shield size={10} />
+              AUDIO: {audioEnabled ? 'ON' : 'OFF'}
+            </button>
+          </div>
         </div>
       </div>
     </header>

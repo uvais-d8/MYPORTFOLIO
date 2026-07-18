@@ -168,7 +168,6 @@ export const TerminalConsole: React.FC<TerminalConsoleProps> = ({ onClose }) => 
           `  PHONE:     ${portfolioConfig.contactInfo.phone}`,
           `  GITHUB:    https://${portfolioConfig.contactInfo.github}`,
           `  LINKEDIN:  https://${portfolioConfig.contactInfo.linkedin}`,
-          `  PORTFOLIO: https://${portfolioConfig.contactInfo.portfolio}`,
           ""
         );
         break;
@@ -314,7 +313,7 @@ export const TerminalConsole: React.FC<TerminalConsoleProps> = ({ onClose }) => 
             padding: '0.75rem 1.5rem',
             background: 'rgba(3, 7, 18, 0.5)'
           }}>
-            <span style={{ color: 'var(--neon-cyan)', marginRight: '0.5rem', fontSize: '0.85rem' }}>guest@neo-dev-terminal:~$</span>
+            <span className="terminal-prefix" style={{ color: 'var(--neon-cyan)', marginRight: '0.5rem', fontSize: '0.85rem', fontFamily: 'var(--font-mono)' }}></span>
             <input
               type="text"
               value={inputVal}

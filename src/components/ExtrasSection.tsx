@@ -39,15 +39,7 @@ export const ExtrasSection: React.FC = () => {
   return (
     <section id="extras" style={{ padding: '1rem 0' }}>
       {/* 1. Metrics & GitHub telemetry dashboard */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr',
-        gap: '2rem',
-        marginBottom: '2rem',
-        '@media (min-width: 992px)': {
-          gridTemplateColumns: '1.2fr 1fr'
-        }
-      } as any}>
+      <div className="extras-grid">
         {/* Glowing Simulated GitHub Contribution Grid */}
         <motion.div 
           initial={{ opacity: 0, x: -30 }}

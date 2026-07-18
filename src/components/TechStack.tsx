@@ -20,14 +20,7 @@ export const TechStack: React.FC = () => {
         <span className="text-cyan">//</span> SKILL_MATRIX_TELEMETRY
       </h2>
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr',
-        gap: '2rem',
-        '@media (min-width: 992px)': {
-          gridTemplateColumns: '300px 1fr',
-        }
-      } as any}>
+      <div className="skills-grid">
         {/* Category Selector Tabs */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           {portfolioConfig.skills.map((category, idx) => (
