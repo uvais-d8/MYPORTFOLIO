@@ -78,7 +78,7 @@ export const portfolioConfig: PortfolioData = {
   profile: {
     name: "Muhammed Uvais",
     alias: "UVAIS_DEV_02",
-    title: "Backend & Systems Developer",
+    title: "Backend & MERN Stack Developer",
     status: "TELEMETRY STABLE // INGESTING MESSAGES",
     location: "Malappuram, Kerala, India",
     uptime: "99.98%",
