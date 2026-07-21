@@ -130,7 +130,7 @@ export const HeroSection: React.FC = () => {
             {portfolioConfig.profile.name}
           </motion.h1>
 
-          <motion.h2 
+          <motion.p 
             variants={itemVariants}
             style={{
               fontFamily: 'var(--font-hud)',
@@ -139,20 +139,28 @@ export const HeroSection: React.FC = () => {
               marginBottom: '1.5rem',
               textTransform: 'uppercase',
               letterSpacing: '2px',
-              textShadow: '0 0 10px var(--neon-purple-glow)'
+              textShadow: '0 0 10px var(--neon-purple-glow)',
+              fontWeight: 700
             }}
           >
             {portfolioConfig.profile.title}
-          </motion.h2>
+          </motion.p>
 
           {/* Headline details */}
-          <motion.h3
+          <motion.h2
             variants={itemVariants}
             className="hero-subtitle"
+            style={{
+              fontSize: '1.4rem',
+              fontFamily: 'var(--font-hud)',
+              color: 'var(--text-primary)',
+              marginBottom: '1rem',
+              lineHeight: 1.3
+            }}
           >
             Building Powerful Backend Systems <br />
             <span style={{ color: 'var(--neon-cyan)' }}>For Modern Web Applications.</span>
-          </motion.h3>
+          </motion.h2>
 
           <motion.p 
             variants={itemVariants}
@@ -171,6 +179,7 @@ export const HeroSection: React.FC = () => {
             <button
               onClick={handleDownloadResume}
               className="btn-cyber"
+              aria-label="Download Resume of Muhammed Uvais"
             >
               DOWNLOAD RESUME
               <Download size={14} />
@@ -183,6 +192,7 @@ export const HeroSection: React.FC = () => {
                 if (projects) projects.scrollIntoView({ behavior: 'smooth' });
               }}
               className="btn-cyber btn-cyber-purple"
+              aria-label="View Deployed Projects of Muhammed Uvais"
             >
               VIEW PROJECTS
               <ArrowRight size={14} />
@@ -196,6 +206,7 @@ export const HeroSection: React.FC = () => {
               }}
               className="btn-cyber"
               style={{ borderColor: 'var(--border-glass)' }}
+              aria-label="Contact Muhammed Uvais"
             >
               CONTACT ME
               <Send size={14} />
@@ -270,7 +281,7 @@ export const HeroSection: React.FC = () => {
               }}>
                 <img 
                   src={me1} 
-                  alt={portfolioConfig.profile.name} 
+                  alt="Muhammed Uvais - Backend Developer &amp; MERN Stack Developer" 
                   style={{ 
                     width: '100%', 
                     height: '100%', 

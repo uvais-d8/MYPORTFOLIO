@@ -226,6 +226,19 @@ export const ContactForm: React.FC = () => {
                 boxShadow: `0 0 20px ${card.brandColor}33`
               }}
               className="cyber-panel corner-brackets social-card-item"
+              aria-label={`Connect via ${card.name}: ${card.displayValue}`}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  if (card.isCopyable) {
+                    handleCopy(card.displayValue, card.name.toLowerCase());
+                  } else if (card.url !== '#') {
+                    playCyberSound('click');
+                    window.open(card.url, '_blank');
+                  }
+                }
+              }}
               style={{
                 background: 'rgba(17, 24, 39, 0.45)',
                 border: '1px solid var(--border-glass)',

@@ -19,7 +19,7 @@ export const Projects: React.FC = () => {
   return (
     <section id="projects">
       <h2 className="section-title">
-        <span className="text-cyan">//</span> DEPLOYED_PROJECTS_DATABASE
+        <span className="text-cyan">//</span> FEATURED_PROJECTS // DEPLOYED_DATABASE
       </h2>
 
       {/* Projects Grid */}
@@ -29,7 +29,7 @@ export const Projects: React.FC = () => {
         gap: '2rem'
       }}>
         {portfolioConfig.projects.map((project) => (
-          <div
+          <article
             key={project.id}
             className="cyber-panel corner-brackets project-card"
             onClick={() => openProject(project)}
@@ -121,7 +121,7 @@ export const Projects: React.FC = () => {
                 <ExternalLink size={10} />
               </span>
             </div>
-          </div>
+          </article>
         ))}
       </div>
 

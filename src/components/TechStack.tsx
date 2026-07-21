@@ -17,7 +17,7 @@ export const TechStack: React.FC = () => {
   return (
     <section id="skills">
       <h2 className="section-title">
-        <span className="text-cyan">//</span> SKILL_MATRIX_TELEMETRY
+        <span className="text-cyan">//</span> SKILLS_&amp;_TECH_STACK // TELEMETRY
       </h2>
 
       <div className="skills-grid">

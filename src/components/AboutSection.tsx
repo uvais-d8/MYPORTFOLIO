@@ -40,7 +40,7 @@ export const AboutSection: React.FC = () => {
         variants={containerVariants}
       >
         <motion.h2 variants={itemVariants} className="section-title">
-          <span className="text-cyan">//</span> EXECUTIVE_BIO
+          <span className="text-cyan">//</span> ABOUT_MUHAMMED_UVAIS // EXECUTIVE_BIO
         </motion.h2>
 
         <div className="about-grid">
@@ -122,7 +122,7 @@ export const AboutSection: React.FC = () => {
               }}>
                 <img 
                   src={me2} 
-                  alt="Muhammed Uvais Profile" 
+                  alt="Muhammed Uvais - Backend Developer &amp; MERN Stack Developer Profile" 
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                 />
                 <div style={{

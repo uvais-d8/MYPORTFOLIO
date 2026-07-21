@@ -168,12 +168,13 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Navigation Controls */}
-        <nav className="desktop-nav">
+        <nav className="desktop-nav" aria-label="Main Navigation">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleNav(item.id)}
               onMouseEnter={() => audioEnabled && playCyberSound('hover')}
+              aria-label={`Navigate to ${item.label} section`}
               style={{
                 background: 'transparent',
                 border: 'none',
@@ -218,6 +219,7 @@ export const Header: React.FC<HeaderProps> = ({
                 }
               }}
               onMouseEnter={() => audioEnabled && playCyberSound('hover')}
+              aria-label={`Toggle audio effects: currently ${audioEnabled ? 'ON' : 'OFF'}`}
               style={{
                 background: audioEnabled ? 'rgba(6, 182, 212, 0.15)' : 'transparent',
                 border: `1px solid ${audioEnabled ? 'var(--neon-cyan)' : 'var(--text-muted)'}`,
@@ -242,6 +244,7 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             onClick={toggleTerminal}
             onMouseEnter={() => audioEnabled && playCyberSound('hover')}
+            aria-label={terminalMode ? 'Exit Terminal CLI Mode' : 'Launch Terminal CLI Mode'}
             style={{
               background: terminalMode ? 'rgba(168, 85, 247, 0.15)' : 'transparent',
               border: `1px solid ${terminalMode ? 'var(--neon-purple)' : 'var(--border-glass)'}`,
@@ -265,6 +268,7 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             className="mobile-menu-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Mobile Navigation Menu"
           >
             {mobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
           </button>

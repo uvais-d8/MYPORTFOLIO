@@ -14,7 +14,7 @@ export const Experience: React.FC = () => {
   return (
     <section id="experience">
       <h2 className="section-title">
-        <span className="text-cyan">//</span> DEPLOYMENT_TIMELINE_LOGS
+        <span className="text-cyan">//</span> WORK_EXPERIENCE // DEPLOYMENT_TIMELINE
       </h2>
 
       <div style={{ position: 'relative', paddingLeft: '2rem' }}>
@@ -63,7 +63,7 @@ export const Experience: React.FC = () => {
               </div>
 
               {/* Server Log Card */}
-              <div 
+              <article 
                 className={`cyber-panel ${exp.status === 'ACTIVE' ? '' : 'cyber-panel-accent'}`}
                 style={{
                   cursor: 'pointer',
@@ -211,7 +211,7 @@ export const Experience: React.FC = () => {
                     transition: 'transform var(--transition-fast)'
                   }} />
                 </div>
-              </div>
+              </article>
             </div>
           );
         })}
